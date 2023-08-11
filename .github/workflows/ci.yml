@@ -59,9 +59,7 @@ jobs:
           rustup component add rustfmt
 
       - name: Run clippy
-        working-directory: ./lib
         run: cargo clippy --all-features -- -Dwarnings
 
       - name: Run fmt
-        working-directory: ./lib
         run: cargo fmt --check
