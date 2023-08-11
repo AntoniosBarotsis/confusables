@@ -61,7 +61,8 @@ fn main() {
 
   write!(
     &mut file,
-    "static KEYWORDS: phf::Map<&'static str, &'static str> = {}",
+    "#[allow(clippy::unicode_not_nfc, clippy::unreadable_literal)]
+    static KEYWORDS: phf::Map<&'static str, &'static str> = {}",
     map.build()
   )
   .unwrap();
