@@ -6,6 +6,10 @@ use std::io::{BufWriter, Write};
 use std::path::Path;
 
 fn main() {
+  // Run the build script when either this or the data file change
+  println!("cargo:rerun-if-changed=build.rs");
+  println!("cargo:rerun-if-changed=./data/confusablesSummary.txt");
+
   let path = Path::new(&env::var("OUT_DIR").unwrap()).join("codegen.rs");
   let mut file = BufWriter::new(File::create(path).unwrap());
 
@@ -13,6 +17,7 @@ fn main() {
 
   let data = include_str!("./data/confusablesSummary.txt");
 
+  // All the data we need is in the `# ...` lines
   let data = data
     .lines()
     .filter(|l| l.starts_with("#	"))
@@ -20,9 +25,12 @@ fn main() {
     .collect::<Vec<_>>();
 
   for el in data {
+    // Add a tab at the end of the string so we always read until a tab
     let tmp = el + "\t";
     let chars = tmp.chars();
 
+    // Some confusables are multiple characters so we need to accumulate them.
+    // They are separated by tabs.
     let mut accumulator = String::new();
     let mut first = String::new();
     let mut first_parsed = false;
@@ -37,7 +45,8 @@ fn main() {
         continue;
       }
 
-      if c == '\t' && !accumulator.is_empty() {
+      // Delimiter
+      if c == '\t' {
         let _ = map.entry(accumulator, &format!("r\"{first}\""));
 
         accumulator = String::new();
@@ -45,6 +54,7 @@ fn main() {
         continue;
       }
 
+      // Append
       accumulator += &(c.clone()).to_string();
     }
   }
