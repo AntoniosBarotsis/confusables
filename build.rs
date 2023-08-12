@@ -5,8 +5,8 @@ use std::fs::File;
 use std::io::{BufWriter, Write};
 use std::path::Path;
 
-use phf_codegen::Map;
 use is_rtl::is_rtl;
+use phf_codegen::Map;
 
 fn main() {
   // Run the build script when either this or the data file change
