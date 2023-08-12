@@ -30,9 +30,9 @@ fn main() {
     let first_char = el.chars().next().unwrap();
 
     if is_rtl(first_char) {
-      yes(el.rsplit_terminator('\t'), &mut map);
+      parse(el.rsplit_terminator('\t'), &mut map);
     } else {
-      yes(el.split_terminator('\t'), &mut map);
+      parse(el.split_terminator('\t'), &mut map);
     }
   }
 
@@ -49,7 +49,7 @@ fn main() {
 
 // The suggested lint fix doesn't compile 0_0
 #[allow(single_use_lifetimes)]
-fn yes<'a>(mut confusables: impl Iterator<Item = &'a str>, map: &mut Map<String>) {
+fn parse<'a>(mut confusables: impl Iterator<Item = &'a str>, map: &mut Map<String>) {
   let first = confusables.next().unwrap();
 
   for c in confusables {
