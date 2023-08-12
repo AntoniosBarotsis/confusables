@@ -14,6 +14,8 @@ dependencies = [
 [[package]]
 name = "is-rtl"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "577be4c89fa06abda04b93f0bf71715a90e634169005decef10994c03621b9c0"
 
 [[package]]
 name = "phf"
