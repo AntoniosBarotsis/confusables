@@ -34,9 +34,6 @@ fn main() {
     } else {
       yes(el.split_terminator('\t'), &mut map);
     }
-
-    // let mut confusables = el.split_terminator('\t');
-    // let first = confusables.next().unwrap();
   }
 
   write!(
