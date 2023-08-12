@@ -1,9 +1,9 @@
 [package]
 name = "is-rtl"
 description = "Detects Right-To-Left alphabets"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
-repository = "https://github.com/AntoniosBarotsis/is-rtl"
+repository = "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/is-rtl"
 license = "GPL-3.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
