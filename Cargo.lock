@@ -6,9 +6,14 @@ version = 3
 name = "confusables"
 version = "0.1.0"
 dependencies = [
+ "is-rtl",
  "phf",
  "phf_codegen",
 ]
+
+[[package]]
+name = "is-rtl"
+version = "0.1.0"
 
 [[package]]
 name = "phf"
