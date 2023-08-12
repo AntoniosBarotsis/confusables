@@ -17,7 +17,6 @@
 /// - Hebrew
 /// - Old Persian
 /// - Syrian
-// TODO: Move this to a separate crate and publish it as it might actually be useful
 pub const fn is_rtl(c: char) -> bool {
   match c {
     '\u{600}'..='\u{6FF}'|         // Arabic
