@@ -35,7 +35,7 @@ fn main() {
           u32::from_str_radix(el, 16)
             .unwrap_or_else(|_| panic!("'{target}' is not a valid hex number"))
         })
-        .map(|c| char::from_u32(c).unwrap())
+        .map(|c| char::from_u32(c).unwrap_or_else(|| panic!("'{c}' is not a valid character")))
         .collect::<String>();
 
       (parsed_source, parsed_target)
@@ -48,10 +48,8 @@ fn main() {
   write!(
     &mut file,
     "#[allow(clippy::unicode_not_nfc, clippy::unreadable_literal)]
-    static KEYWORDS: phf::Map<char, &'static str> = {}",
+    static KEYWORDS: phf::Map<char, &'static str> = {};",
     map.build()
   )
   .unwrap();
-
-  writeln!(&mut file, ";").unwrap();
 }
