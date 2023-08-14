@@ -1,9 +1,10 @@
 include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
 
 fn main() {
-  let c = "صلى الله عليه وسلم";
-  // let c = "꓾";
-  let tmp = KEYWORDS.get(c).expect("So confusing");
+  // let c = 'ﺔ';
+  // let c = '\u{FE87}';
+  let c = '\u{08F3}';
+  let tmp = KEYWORDS.get(&c).expect("So confusing");
 
   println!("{c} -> {tmp}");
 }

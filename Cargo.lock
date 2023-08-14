@@ -6,16 +6,9 @@ version = 3
 name = "confusables"
 version = "0.1.0"
 dependencies = [
- "is-rtl",
  "phf",
  "phf_codegen",
 ]
-
-[[package]]
-name = "is-rtl"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21b7eafcfda7b0c9922311f5a4d58cd10835e9db3ec25feaf6277c8e832a898a"
 
 [[package]]
 name = "phf"
