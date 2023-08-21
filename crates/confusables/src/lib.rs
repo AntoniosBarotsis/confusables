@@ -68,22 +68,30 @@ pub fn replace(input: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-  use crate::detect_replace;
+  use crate::{detect_replace, are_confusable};
+
+  const DATA: [(&str, &str); 5] = [
+    ("ǉeto", "ljeto"),
+    ("pаypаl", "paypal"),
+    ("ѕсоре", "scope"),
+    ("𝓗℮𝐥1೦", "Hello"),
+    ("m", "rn"),
+  ];
 
   #[test]
-  fn test() {
-    let data = vec![
-      ("ǉeto", "ljeto"),
-      ("pаypаl", "paypal"),
-      ("ѕсоре", "scope"),
-      ("𝓗℮𝐥1೦", "Hello"),
-      ("m", "rn"),
-    ];
-
-    for (input, output) in data {
+  fn detect_replace_test() {
+    for (input, output) in DATA {
       let res = detect_replace(input);
 
       assert_eq!(&res, output);
+    }
+  }
+  
+  #[test]
+  fn equality_test() {
+    for (input, output) in DATA {
+      assert!(are_confusable(input, output));  // Left "simplifies" to right
+      assert!(!are_confusable(output, input)); // Right does not "simplify" to left
     }
   }
 }
