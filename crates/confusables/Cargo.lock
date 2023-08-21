@@ -11,13 +11,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "confusables-playground"
-version = "0.1.0"
-dependencies = [
- "confusables",
-]
-
-[[package]]
 name = "phf"
 version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
