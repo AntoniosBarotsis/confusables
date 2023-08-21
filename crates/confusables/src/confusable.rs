@@ -5,7 +5,7 @@ pub trait Confusable {
   ///
   /// # Example
   /// ```
-  /// use crate::confusables::confusable::Confusable;
+  /// use crate::confusables::Confusable;
   ///
   /// assert!("𝓗℮𝐥1೦".contains_confusable());
   /// assert!(!"Hello".contains_confusable());
@@ -17,7 +17,7 @@ pub trait Confusable {
   /// # Example
   ///
   /// ```
-  /// use crate::confusables::confusable::Confusable;
+  /// use crate::confusables::Confusable;
   ///
   /// let data = [
   ///   ("ǉeto", "ljeto"),
@@ -41,7 +41,7 @@ pub trait Confusable {
   /// # Example
   ///
   /// ```
-  /// use crate::confusables::confusable::Confusable;
+  /// use crate::confusables::Confusable;
   ///
   /// let text = "𝓗℮𝐥1೦, world!";
   /// let normal_contains = text.contains("Hello");

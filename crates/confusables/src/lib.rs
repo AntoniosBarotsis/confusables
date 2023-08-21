@@ -1,7 +1,7 @@
-use confusable::Confusable;
+pub use confusable::Confusable;
 use std::borrow::Cow;
 
-pub mod confusable;
+mod confusable;
 
 include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
 
