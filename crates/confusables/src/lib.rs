@@ -1,56 +1,31 @@
-use std::borrow::Cow;
+use clean_string::CleanString;
+
+pub mod clean_string;
 
 include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
-
-/// Returns [`true`] if the left "potentially confusable" string
-/// can be confused with the right "non confusable" string.
-/// 
-/// ## Examples
-/// 
-/// ```
-/// # use confusables::are_confusable;
-/// let data = [
-///   ("ǉeto", "ljeto"),
-///   ("pаypаl", "paypal"),
-///   ("ѕсоре", "scope"),
-///   ("𝓗℮𝐥1೦", "Hello"),
-///   ("m", "rn"),
-/// ];
-/// 
-/// for (left, right) in data {
-///   // Left "simplifies" to right
-///   assert!(are_confusable(left, right));
-/// 
-///   // Right does *not* "simplify" to left
-///   assert!(!are_confusable(right, left));
-/// }
-/// ```
-pub fn are_confusable(left: &str, right: &str) -> bool {
-  let left = detect_replace(left);
-
-  left == right
-}
 
 /// Checks if the input contains any confusable characters.
 pub fn is_confusable(input: &str) -> bool {
   input.chars().any(|c| KEYWORDS.get(&c).is_some())
 }
 
-/// Replaces all confusables characters in the string. 
-/// 
+/// Replaces all confusables characters in the string.
+///
 /// It first checks whether the input contains any confusable
 /// characters in the first place. If you are certain it does,
 /// you can call [`replace`] directly.
-pub fn detect_replace(input: &str) -> Cow<'_, str> {
+pub fn detect_replace(input: &str) -> CleanString {
   if is_confusable(input) {
-    Cow::Owned(replace(input))
+    replace(input)
   } else {
-    Cow::Borrowed(input)
+    CleanString {
+      inner: input.to_owned(),
+    }
   }
 }
 
 /// Replaces all confusable characters.
-pub fn replace(input: &str) -> String {
+pub fn replace(input: &str) -> CleanString {
   // Create a string buffer with room for more chars than the initial string
   // since some confusables map to more than one char.
   let mut output = String::with_capacity(input.len() * 2);
@@ -63,12 +38,12 @@ pub fn replace(input: &str) -> String {
     }
   });
 
-  output
+  CleanString { inner: output }
 }
 
 #[cfg(test)]
 mod tests {
-  use crate::{detect_replace, are_confusable};
+  use crate::{detect_replace, replace};
 
   const DATA: [(&str, &str); 5] = [
     ("ǉeto", "ljeto"),
@@ -83,15 +58,20 @@ mod tests {
     for (input, output) in DATA {
       let res = detect_replace(input);
 
-      assert_eq!(&res, output);
+      assert_eq!(res, output);
     }
   }
-  
+
   #[test]
   fn equality_test() {
     for (input, output) in DATA {
-      assert!(are_confusable(input, output));  // Left "simplifies" to right
-      assert!(!are_confusable(output, input)); // Right does not "simplify" to left
+      let input_replaced = replace(input);
+      let output_replaced = replace(output);
+
+      // Left "simplifies" to right
+      assert!(input_replaced.is_confusable_with(output));
+      // Right does not "simplify" to left
+      assert!(!output_replaced.is_confusable_with(input));
     }
   }
 }
