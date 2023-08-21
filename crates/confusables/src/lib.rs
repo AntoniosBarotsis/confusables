@@ -1,31 +1,25 @@
-use clean_string::CleanString;
+use confusable::Confusable;
+use std::borrow::Cow;
 
-pub mod clean_string;
+pub mod confusable;
 
 include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
-
-/// Checks if the input contains any confusable characters.
-pub fn is_confusable(input: &str) -> bool {
-  input.chars().any(|c| KEYWORDS.get(&c).is_some())
-}
 
 /// Replaces all confusables characters in the string.
 ///
 /// It first checks whether the input contains any confusable
 /// characters in the first place. If you are certain it does,
 /// you can call [`replace`] directly.
-pub fn detect_replace(input: &str) -> CleanString {
-  if is_confusable(input) {
-    replace(input)
+pub fn detect_replace(input: &str) -> Cow<'_, str> {
+  if input.contains_confusable() {
+    Cow::Owned(replace(input))
   } else {
-    CleanString {
-      inner: input.to_owned(),
-    }
+    Cow::Borrowed(input)
   }
 }
 
 /// Replaces all confusable characters.
-pub fn replace(input: &str) -> CleanString {
+pub fn replace(input: &str) -> String {
   // Create a string buffer with room for more chars than the initial string
   // since some confusables map to more than one char.
   let mut output = String::with_capacity(input.len() * 2);
@@ -38,12 +32,12 @@ pub fn replace(input: &str) -> CleanString {
     }
   });
 
-  CleanString { inner: output }
+  output
 }
 
 #[cfg(test)]
 mod tests {
-  use crate::{detect_replace, replace};
+  use crate::{confusable::Confusable, detect_replace};
 
   const DATA: [(&str, &str); 5] = [
     ("ǉeto", "ljeto"),
@@ -65,13 +59,13 @@ mod tests {
   #[test]
   fn equality_test() {
     for (input, output) in DATA {
-      let input_replaced = replace(input);
-      let output_replaced = replace(output);
+      assert!(input.contains_confusable());
+      assert!(!output.contains_confusable());
 
       // Left "simplifies" to right
-      assert!(input_replaced.is_confusable_with(output));
+      assert!(input.is_confusable_with(output));
       // Right does not "simplify" to left
-      assert!(!output_replaced.is_confusable_with(input));
+      assert!(!output.is_confusable_with(input));
     }
   }
 }
