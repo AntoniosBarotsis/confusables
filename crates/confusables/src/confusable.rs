@@ -36,7 +36,7 @@ pub trait Confusable {
   /// ```
   fn is_confusable_with(&self, right: &str) -> bool;
 
-  /// A wrapper for the [`String::contains`] method that is resilient to confusables.
+  /// A wrapper for the [`str::contains`] method that is resilient to confusables.
   ///
   /// # Example
   ///
