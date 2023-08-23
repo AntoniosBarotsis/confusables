@@ -12,6 +12,8 @@ A Rust crate that provides utilities around Unicode confusables/homoglyphs. Spec
   [Unicode® Technical Standard](https://www.unicode.org/reports/tr39/))
 - confusable-resilient operations (equality, contains) on strings
 
+The Unicode data file is parsed at compile time so there is no extra overhead at runtime.
+
 ## Get Started
 
 All the new methods are implemented as part of a trait which you will need to import:
@@ -21,5 +23,3 @@ use confusables::Confusable;
 ```
 
 All methods come with code examples so be sure to check those!
-
-<!-- TODO: Add docs.rs link -->
