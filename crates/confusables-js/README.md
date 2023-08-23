@@ -16,7 +16,8 @@ You can install the project with npm. In the project directory, run:
 $ npm install
 ```
 
-This fully installs the project, including installing any dependencies and running the build.
+This will generate an `index.node` (~ `379.9KB`) file which you can import with `require('.')` if
+you are in the same directory.
 
 ## Exploring confusables-js
 
