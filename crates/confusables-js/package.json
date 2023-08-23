@@ -1,0 +1,31 @@
+{
+  "name": "confusables-js",
+  "version": "0.1.0",
+  "description": "Un-confusing your Unicode",
+  "main": "index.node",
+  "scripts": {
+    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
+    "build-debug": "npm run build --",
+    "build-release": "npm run build -- --release",
+    "install": "npm run build-release",
+    "test": "cargo test"
+  },
+  "author": "Antonios Barotsis",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntoniosBarotsis/confusables.git"
+  },
+  "keywords": [
+    "unicode",
+    "confusable",
+    "homoglyph"
+  ],
+  "bugs": {
+    "url": "https://github.com/AntoniosBarotsis/confusables/issues"
+  },
+  "homepage": "https://github.com/AntoniosBarotsis/confusables#readme"
+}
