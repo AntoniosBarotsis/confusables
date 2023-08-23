@@ -10,4 +10,8 @@ license = "GPL-3.0"
 confusables = { path = "./crates/confusables" }
 
 [workspace]
-members = [ "crates/confusables", "crates/confusables-js" ]
+members = [
+  "crates/confusables",
+  "crates/confusables-js",
+  "crates/is-rtl"
+]
