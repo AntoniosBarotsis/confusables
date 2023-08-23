@@ -1,6 +1,9 @@
 [package]
 name = "confusables"
-repository = "https://github.com/AntoniosBarotsis/confusables"
+description = "Utilities around Unicode confusables/homoglyphs"
+repository = "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/confusables"
+keywords = ["confusables", "homoglyphs", "unicode"]
+readme = "README.md"
 version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0"
