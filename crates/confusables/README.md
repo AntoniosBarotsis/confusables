@@ -1,5 +1,9 @@
 # Confusables
 
+[![Build & Tests](https://github.com/AntoniosBarotsis/confusables/actions/workflows/ci.yml/badge.svg)](https://github.com/AntoniosBarotsis/confusables/actions/workflows/ci.yml)
+[![Crates.io](https://img.shields.io/crates/v/confusables)](https://crates.io/crates/confusables)
+[![docs.rs](https://img.shields.io/docsrs/confusables)](https://docs.rs/confusables/)
+
 A Rust crate that provides utilities around Unicode confusables/homoglyphs. Specifically about:
 
 - detecting confusable characters in strings
