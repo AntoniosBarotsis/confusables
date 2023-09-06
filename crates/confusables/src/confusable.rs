@@ -15,7 +15,7 @@ pub trait Confusable {
   /// ```
   fn contains_confusable(&self) -> bool;
 
-  /// Checks whether the current string is confusable with another string
+  /// Checks whether the current string is confusable with another string.
   ///
   /// # Example
   ///
