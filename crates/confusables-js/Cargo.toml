@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "confusables-js-2"
+name = "confusables-js"
 version = "0.0.0"
 
 [lib]

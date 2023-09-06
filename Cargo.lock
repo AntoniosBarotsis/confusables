@@ -32,7 +32,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "confusables-js-2"
+name = "confusables-js"
 version = "0.0.0"
 dependencies = [
  "confusables",
