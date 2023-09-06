@@ -138,7 +138,7 @@ jobs:
         if: ${{ matrix.settings.docker }}
         with:
           image: ${{ matrix.settings.docker }}
-          options: '--user 0:0 -v ${{ github.workspace }}/crates/confusables-js/.cargo-cache/git/db:/usr/local/cargo/git/db -v ${{ github.workspace }}/crates/confusables-js/.cargo/registry/cache:/usr/local/cargo/registry/cache -v ${{ github.workspace }}/crates/confusables-js/.cargo/registry/index:/usr/local/cargo/registry/index -v ${{ github.workspace }}/crates/confusables-js:/build -v ${{ github.workspace }}/crates/confusables:/build -w /build'
+          options: '--user 0:0 -v ${{ github.workspace }}/crates/confusables-js/.cargo-cache/git/db:/usr/local/cargo/git/db -v ${{ github.workspace }}/crates/confusables-js/.cargo/registry/cache:/usr/local/cargo/registry/cache -v ${{ github.workspace }}/crates/confusables-js/.cargo/registry/index:/usr/local/cargo/registry/index -v ${{ github.workspace }}/crates/confusables-js:/build -v ${{ github.workspace }}/crates/confusables:/confusables -w /build'
           run: ${{ matrix.settings.build }}
       - name: Build
         run: ${{ matrix.settings.build }}
