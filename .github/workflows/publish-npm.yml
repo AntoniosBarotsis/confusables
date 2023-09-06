@@ -200,7 +200,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: bindings-freebsd
-          path: ${{ env.APP_NAME }}.*.node
+          path: confusables/confusables/crates/confusables-js/confusables-js.freebsd-x64.node
           if-no-files-found: error
   test-macOS-windows-binding:
     name: Test bindings on ${{ matrix.settings.target }} - node@${{ matrix.node }}
