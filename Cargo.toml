@@ -15,3 +15,6 @@ members = [
   "crates/confusables-js",
   "crates/is-rtl"
 ]
+
+[profile.release]
+lto = true

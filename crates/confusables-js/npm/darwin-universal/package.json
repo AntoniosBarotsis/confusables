@@ -1,0 +1,17 @@
+{
+  "name": "confusables-js-darwin-universal",
+  "version": "0.0.0",
+  "os": [
+    "darwin"
+  ],
+  "main": "confusables-js.darwin-universal.node",
+  "files": [
+    "confusables-js.darwin-universal.node"
+  ],
+  "description": "Utilities around Unicode confusables/homoglyphs",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/confusables-js"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "confusables-js-win32-x64-msvc",
+  "version": "0.0.0",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "confusables-js.win32-x64-msvc.node",
+  "files": [
+    "confusables-js.win32-x64-msvc.node"
+  ],
+  "description": "Utilities around Unicode confusables/homoglyphs",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/confusables-js"
+}

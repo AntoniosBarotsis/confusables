@@ -1,6 +1,8 @@
 # confusables-js
 
-> **Note**: This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).
+> **Note**: This project was bootstrapped by [`napi-rs`](https://napi.rs).
+<!-- 
+TODO: Update this
 
 I decided to not publish this anywhere because it seems that publishing pre-compiled binaries on
 NPM is quite the hassle (at least compared to python) and stuff generally just did not work for me
@@ -21,4 +23,4 @@ you are in the same directory.
 
 ## Exploring confusables-js
 
-After building confusables-js, you can check out [this](./test.js) file for usage examples.
+After building confusables-js, you can check out [this](./test.js) file for usage examples. -->
