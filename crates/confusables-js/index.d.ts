@@ -16,7 +16,7 @@ export function replaceConfusable(input: string): string
  *
  * It first checks whether the input contains any confusable
  * characters in the first place. If you are certain it does,
- * you can call [`replace_confusable`] directly,
+ * you can call `replace_confusable` directly,
  * otherwise this might save you an allocation.
  */
 export function detectReplaceConfusable(input: string): string
