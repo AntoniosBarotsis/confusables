@@ -93,6 +93,7 @@ jobs:
           node-version: 18
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
       - name: Install
         uses: dtolnay/rust-toolchain@stable
         if: ${{ !matrix.settings.docker }}
@@ -130,6 +131,7 @@ jobs:
           node-version: 18
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
           architecture: x86
       - name: Build in docker
         uses: addnab/docker-run-action@v3
@@ -227,6 +229,7 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
@@ -262,6 +265,7 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
       - name: Install dependencies
         run: yarn install
       - name: Download artifacts
@@ -297,6 +301,7 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
       - name: Install dependencies
         run: |
           yarn config set supportedArchitectures.libc "musl"
@@ -450,6 +455,7 @@ jobs:
           node-version: 18
           check-latest: true
           cache: yarn
+          cache-dependency-path: './crates/confusables-js/yarn.lock'
       - name: Install dependencies
         run: yarn install
       - name: Download macOS x64 artifact
@@ -493,6 +499,7 @@ jobs:
   #         node-version: 18
   #         check-latest: true
   #         cache: yarn
+  #         cache-dependency-path: './crates/confusables-js/yarn.lock'
   #     - name: Install dependencies
   #       run: yarn install
   #     - name: Download all artifacts
