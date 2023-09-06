@@ -1,6 +1,6 @@
 {
   "name": "@antonisbarotsis/confusables-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
@@ -43,5 +43,6 @@
   },
   "packageManager": "yarn@3.6.3",
   "description": "Utilities around Unicode confusables/homoglyphs",
-  "repository": "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/confusables-js"
+  "repository": "https://github.com/AntoniosBarotsis/confusables/tree/main/crates/confusables-js",
+  "keywords": ["confusables", "homoglyphs", "unicode"]
 }
