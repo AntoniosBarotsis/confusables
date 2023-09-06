@@ -188,6 +188,7 @@ jobs:
             whoami
             env
             freebsd-version
+            cd crates/confusables-js
             yarn install
             yarn build
             strip -x *.node
