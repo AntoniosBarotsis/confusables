@@ -1,4 +1,4 @@
-name: CI
+name: Release NPM
 env:
   DEBUG: napi:*
   APP_NAME: confusables-js
