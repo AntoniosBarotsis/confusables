@@ -1,8 +1,8 @@
 #![deny(clippy::all)]
 #![allow(clippy::needless_pass_by_value)]
 
-use napi_derive::napi;
 use confusables::Confusable;
+use napi_derive::napi;
 
 #[napi]
 pub fn contains_confusable(input: String) -> bool {
