@@ -6,19 +6,8 @@ env:
 permissions:
   contents: write
   id-token: write
-'on':
-  push:
-    branches:
-      - main
-    tags-ignore:
-      - '**'
-    paths-ignore:
-      - '**/*.md'
-      - LICENSE
-      - '**/*.gitignore'
-      - .editorconfig
-      - docs/**
-  pull_request: null
+on:
+  workflow_dispatch:
 jobs:
   build:
     strategy:
@@ -92,6 +81,9 @@ jobs:
             build: yarn build --target aarch64-pc-windows-msvc
     name: stable - ${{ matrix.settings.target }} - node@18
     runs-on: ${{ matrix.settings.host }}
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
@@ -159,6 +151,9 @@ jobs:
   build-freebsd:
     runs-on: macos-12
     name: Build FreeBSD
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -221,6 +216,9 @@ jobs:
           - '16'
           - '18'
     runs-on: ${{ matrix.settings.host }}
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
@@ -253,6 +251,9 @@ jobs:
           - '16'
           - '18'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
@@ -285,6 +286,9 @@ jobs:
           - '16'
           - '18'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
@@ -319,6 +323,9 @@ jobs:
           - '16'
           - '18'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Download artifacts
@@ -353,6 +360,9 @@ jobs:
     needs:
       - build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Download artifacts
@@ -393,6 +403,9 @@ jobs:
           - '16'
           - '18'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Download artifacts
@@ -426,6 +439,9 @@ jobs:
     needs:
       - build
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
@@ -466,6 +482,9 @@ jobs:
       - test-linux-aarch64-musl-binding
       - test-linux-arm-gnueabihf-binding
       - universal-macOS
+    defaults:
+      run:
+        working-directory: ./crates/confusables-js
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
