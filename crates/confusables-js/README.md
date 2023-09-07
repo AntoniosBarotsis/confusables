@@ -10,7 +10,7 @@ Node bindings for the [`confusables`](../confusables/README.md) library.
 >   [Unicode® Technical Standard](https://www.unicode.org/reports/tr39/))
 > - confusable-resilient operations (equality, contains) on strings
 
-For usage examples, see [here]([./__test__/index.spec.mjs](https://github.com/AntoniosBarotsis/confusables/blob/main/crates/confusables-js/__test__/index.spec.mjs)).
+For usage examples, see [here](https://github.com/AntoniosBarotsis/confusables/blob/main/crates/confusables-js/__test__/index.spec.mjs).
 
 Install with
 
