@@ -1,5 +1,5 @@
 {
-  "name": "confusables-js-darwin-universal",
+  "name": "@antonisbarotsis/confusables-js-darwin-universal",
   "version": "0.0.0",
   "os": [
     "darwin"

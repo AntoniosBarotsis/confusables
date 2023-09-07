@@ -1,5 +1,5 @@
 {
-  "name": "confusables-js-linux-arm-gnueabihf",
+  "name": "@antonisbarotsis/confusables-js-linux-arm-gnueabihf",
   "version": "0.0.0",
   "os": [
     "linux"
